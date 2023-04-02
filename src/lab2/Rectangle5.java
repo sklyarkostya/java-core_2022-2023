@@ -1,6 +1,6 @@
 package lab2;
 
-public class Rectangle5 {
+public class Rectangle5 implements Shape{
     private double length, width;
     public Rectangle5(double length, double width){
         this.length = length;

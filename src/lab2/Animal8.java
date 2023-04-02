@@ -28,7 +28,7 @@ public class Animal8 {
         this.age = age;
     }
 
-    public void setVoice(String color) {
+    public void setColor(String color) {
         this.color = color;
     }
 }
