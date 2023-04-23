@@ -5,18 +5,15 @@ import java.util.*;
 public class Comparison {
     public static void main(String[] args) {
         ArrayList<Integer> arrayList = new ArrayList<>();
-        for (int i = 0; i < 4000000; i++) {
-            arrayList.add(i);
-        }
-
         TreeSet treeSet = new TreeSet<>();
-        for (int i = 0; i < 4000000; i++) {
-            treeSet.add(i);
-        }
-
         Map<Integer, String> linkedHashMap = new LinkedHashMap<Integer, String>();
+        Random random = new Random(2);
+
         for (int i = 0; i < 4000000; i++) {
-            linkedHashMap.put(i, ""+i);
+            int value = random.nextInt();
+            arrayList.add(value);
+            treeSet.add(value);
+            linkedHashMap.put(value, ""+value);
         }
 
         long startTime = System.currentTimeMillis();
@@ -44,7 +41,7 @@ public class Comparison {
         System.out.println("Время выполнения операции добавления элемента в TreeSet = " + (System.currentTimeMillis() - startTime));
 
         startTime = System.currentTimeMillis();
-        for (int i = 4000000; i < 4020000; i++) {
+        for (int i = 4000000; i < 4050000; i++) {
             linkedHashMap.put(i, ""+i);
         }
         System.out.println("Время выполнения операции добавления элемента в LinkedHashMap = " + (System.currentTimeMillis() - startTime));
@@ -57,14 +54,14 @@ public class Comparison {
         System.out.println("Время выполнения операции удаления элемента в начале ArrayList = " + (System.currentTimeMillis() - startTime));
 
         startTime = System.currentTimeMillis();
-        for (int i = 3999999; i > 3979999; i--) {
+        for (int i = 4000000; i > 3959999; i--) {
             arrayList.remove(i);
         }
         System.out.println("Время выполнения операции удаления элемента в конце ArrayList = " + (System.currentTimeMillis() - startTime));
 
         startTime = System.currentTimeMillis();
-        for (int i = 2000000; i < 2050000; i++) {
-            arrayList.remove(2000000);
+        for (int i = 4000000; i < 4050000; i++) {
+            arrayList.remove(4000000);
         }
         System.out.println("Время выполнения операции удаления элемента в середине ArrayList = " + (System.currentTimeMillis() - startTime));
 
@@ -80,15 +77,15 @@ public class Comparison {
         }
         System.out.println("Время выполнения операции удаления элемента в TreeSet = " + (System.currentTimeMillis() - startTime));
 
-        for (int i = 4000000; i < 10000000; i++) {
+        for (int i = 4000000; i < 8000000; i++) {
             arrayList.add(i);
         }
 
-        for (int i = 4000000; i < 10000000; i++) {
+        for (int i = 4000000; i < 8000000; i++) {
             treeSet.add(i);
         }
 
-        for (int i = 4000000; i < 10000000; i++) {
+        for (int i = 4000000; i < 8000000; i++) {
             linkedHashMap.put(i, ""+i);
         }
 
@@ -111,9 +108,8 @@ public class Comparison {
         }
         System.out.println("Время выполнения операции получения элемента по индексу TreeSet = " + (System.currentTimeMillis() - startTime));
 
-        Random random = new Random(2);
-        int i;
-        for ( i = 0; i < 4_000_000; i++) {
+        random = new Random(2);
+        for (int i = 0; i < 4000000; i++) {
             int value = random.nextInt();
             arrayList.add(value);
             treeSet.add(value);
@@ -122,8 +118,8 @@ public class Comparison {
 
         random = new Random(2);
         startTime = System.currentTimeMillis();
-        for (i = 0; i < 50_000; i++) {
-            arrayList.get(random.nextInt(4_000_000));
+        for (int i = 0; i < 50000; i++) {
+            arrayList.get(random.nextInt(4000000));
         }
         System.out.printf("[ArrayList] Получение по индексу = %d ms\n", System.currentTimeMillis() - startTime);
 
@@ -131,8 +127,8 @@ public class Comparison {
 
         random = new Random(2);
         startTime = System.currentTimeMillis();
-        for (i = 0; i < 50_000; i++) {
-            treeSet.contains(random.nextInt(4_000_000));
+        for (int i = 0; i < 50000; i++) {
+            treeSet.contains(random.nextInt(4000000));
         }
         System.out.printf("[TreeSet] Получение по индексу = %d ms\n", System.currentTimeMillis() - startTime);
 
@@ -140,8 +136,8 @@ public class Comparison {
 
         random = new Random(2);
         startTime = System.currentTimeMillis();
-        for (i = 0; i < 50_000; i++) {
-            linkedHashMap.get(random.nextInt(4_000_000));
+        for (int i = 0; i < 50000; i++) {
+            linkedHashMap.get(random.nextInt(4000000));
         }
         System.out.printf("[LinkedHashMap] Получение по индексу = %d ms \n", System.currentTimeMillis() - startTime);
 
