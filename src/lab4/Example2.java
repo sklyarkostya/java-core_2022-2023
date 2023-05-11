@@ -5,7 +5,6 @@ public class Example2 {
         try {
             System.out.println("0");
             throw new RuntimeException("Непроверяемая ошибка");
-            System.out.println("1");
         } catch (Exception e) {
             System.out.println("2 " + e);
         }
