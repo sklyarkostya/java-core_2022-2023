@@ -18,14 +18,17 @@ public class TestClass implements Serializable {
     public static void main(String[] args) {
         try {
             TestClass testClass = new TestClass(1, "string");
-            FileOutputStream fileOut = new FileOutputStream("src/lab7/task8/fileOut.json");
+            FileOutputStream fileOut = new FileOutputStream("src/lab7/task8/file.json");
             ObjectOutputStream out = new ObjectOutputStream(fileOut);
+
             out.writeObject(testClass);
             out.close();
             fileOut.close();
-            FileInputStream fileIn = new FileInputStream("src/lab7/task8/fileOut.json");
+
+            FileInputStream fileIn = new FileInputStream("src/lab7/task8/file.json");
             ObjectInputStream in = new ObjectInputStream(fileIn);
             TestClass testClass1 = (TestClass) in.readObject();
+
             in.close();
             fileIn.close();
             testClass1.printFields();

@@ -3,7 +3,7 @@ package lab7.example1;
 import java.io.File;
 import java.io.IOException;
 
-public class Example1 {
+public class FileExample {
     public static void main(String[] args) {
         File folder = new File("src/lab7/example1/example_folder");
         if (!folder.exists()) {

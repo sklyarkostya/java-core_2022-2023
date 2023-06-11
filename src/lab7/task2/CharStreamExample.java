@@ -1,20 +1,25 @@
-package lab7.example4;
+package lab7.task2;
 
-import java.io.*;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Scanner;
 
-public class Task2 {
+public class CharStreamExample {
     public static void main(String[] args) {
         String filename = "src/lab7/example2/example_file.txt";
-        BufferedReader consoleReader = new BufferedReader(new InputStreamReader(System.in));
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filename))) {
-            System.out.println("Введите данные для записи в файл: ");
-            String data = consoleReader.readLine();
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Введите данные для записи в файл: ");
+        String data = scanner.nextLine();
+        scanner.close();
+        try (FileWriter writer = new FileWriter(filename)) {
             writer.write(data);
             System.out.println("Данные записаны в файл: " + filename);
         } catch (IOException e) {
             System.out.println("Ошибка при записи в файл: " + e.getMessage());
         }
-        try (BufferedReader reader = new BufferedReader(new FileReader(filename))) {
+        try (FileReader reader = new FileReader(filename)) {
             char[] buffer = new char[1024];
             int charRead = reader.read(buffer);
             String readData = new String(buffer, 0, charRead);

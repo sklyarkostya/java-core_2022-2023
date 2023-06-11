@@ -12,8 +12,10 @@ public class WordSearcher {
         try {
             System.out.print("Введите путь к файлу: ");
             String fileName = scanner.nextLine();
+
             System.out.print("Введите слово для поиска: ");
             String word = scanner.nextLine();
+
             reader = new BufferedReader(new FileReader(fileName));
             String line;
             while ((line = reader.readLine()) != null) {

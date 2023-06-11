@@ -8,12 +8,9 @@ public class FileSizeChecker {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Введите путь к файлу: ");
         String filePath = scanner.nextLine();
+
         File file = new File(filePath);
-        if (!file.exists()) {
-            System.out.println("Файл не найден");
-            return;
-        }
-        long fileSize = file.length();
-        System.out.println("Размер файла " + file.getName() + " составляет " + fileSize + " байт(а).");
+
+        System.out.println("Размер файла в байтах: " + file.length());
     }
 }

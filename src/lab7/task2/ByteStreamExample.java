@@ -1,14 +1,17 @@
-package lab7.example2;
+package lab7.task2;
 
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.Scanner;
 
-public class Example2 {
+public class ByteStreamExample {
     public static void main(String[] args) {
         String filename = "src/lab7/example2/example_file.txt";
-        String data = "Это данные для записи в файл";
+        System.out.println("Введите данные для записи в файл:");
+        Scanner scanner = new Scanner(System.in);
+        String data = scanner.nextLine();
         try (FileOutputStream outputStream = new FileOutputStream(filename)) {
             outputStream.write(data.getBytes());
             System.out.println("Данные записаны в файл: " + filename);

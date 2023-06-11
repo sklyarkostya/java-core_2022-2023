@@ -10,7 +10,7 @@ public class LineCounter {
         try {
             File file = new File("src/lab7/task3/file.txt");
             FileReader fileReader = new FileReader(file);
-            BufferedReader bufferedReader = new BufferedReader(fileReader);
+            var bufferedReader = new BufferedReader(fileReader);
             int counter = 0;
             String line;
 
@@ -23,7 +23,7 @@ public class LineCounter {
             fileReader.close();
 
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println("Ошибка при чтении файла: " + e.getMessage());
         }
     }
 }
