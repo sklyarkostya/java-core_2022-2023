@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<house>
+    <animal>
+        <name>Персик</name>
+        <kind>Кот</kind>
+        <breed>Британская</breed>
+    </animal>
+    <animal>
+        <name>Джек</name>
+        <kind>Собака</kind>
+        <breed>Хаски</breed>
+    </animal>
+</house>
